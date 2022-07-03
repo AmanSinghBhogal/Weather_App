@@ -3,8 +3,7 @@ from PIL import Image,ImageTk
 import json
 import requests
 import bs4      # bs stands for Beautify Soup
-
-# key = e0cd284b1483a3eeb7e9bab60c55917f
+from decouple import config
 
 app = Tk()
 app.title("Weather")
@@ -25,9 +24,11 @@ text2.set("")
 text3.set("")
 text4.set("")
 
+Key = config('API_KEY')
+
 def get_weather():
     cityname = city.get()
-    url = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityname +'&appid=e0cd284b1483a3eeb7e9bab60c55917f'
+    url = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityname +'&appid='+Key
     # Grabs the content from the URL:
     html = requests.get(url)
 
