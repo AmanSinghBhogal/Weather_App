@@ -7,7 +7,7 @@ from decouple import config
 
 app = Tk()
 app.title("Weather")
-app.iconbitmap("weather-news.ico")
+app.iconbitmap("./images/weather-news.ico")
 app.geometry("500x500")
 app.resizable(False,False)
 
@@ -93,14 +93,14 @@ def get_weather():
 
 
 
-weathernews1 = Image.open('weather-news.ico')
+weathernews1 = Image.open('./images/weather-news.ico')
 weathernews1 = weathernews1.resize((50,50))
 weathernews1 = ImageTk.PhotoImage(weathernews1)
 weathernews = Label(image=weathernews1, cursor='hand2')
 weathernews.place(x=col2,y=row1)
 
 
-search1 = Image.open('search.png')
+search1 = Image.open('./images/search.png')
 search1 = search1.resize((40,40))
 search1 = ImageTk.PhotoImage(search1)
 search = Button(image=search1, borderwidth=0, cursor='hand2',command=get_weather)
