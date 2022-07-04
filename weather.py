@@ -18,7 +18,8 @@ row1 = 10
 row2 = 90
 row3 = 150
 row4=180
-row5=350
+row5= 250
+row6=350
 
 
 city = Entry(app,font=('Times',18),borderwidth=15,relief=FLAT)
@@ -60,7 +61,36 @@ def get_weather():
     text1.set(temp)
     text2.set(humid)
     text3.set(wind)
-    text4.set(str(dis).upper())
+    upper_desc = dis.upper()
+    center = upper_desc.center(20," ")
+    text4.set(center)
+
+    global weatherDes
+
+    if(dis == "clear sky" or dis == "few clouds"):
+        weatherDes = Image.open(r'./images/clear-sky.png')
+    elif dis == "overcast clouds" or dis == "scattered clouds":
+        weatherDes = Image.open(r'./images/cloudy.png')
+    elif dis == "broken clouds":
+        weatherDes = Image.open(r'./images/broken clouds.png')
+    elif dis == "shower rain" or dis == "rain":
+        weatherDes = Image.open(r'./images/rain.png')
+    elif dis == "thunderstorm":
+        weatherDes = Image.open(r'./images/storm.png')
+    elif dis == "snow":
+        weatherDes = Image.open(r'./images/snow.png')
+    elif dis == "mist" or dis == "haze":
+        weatherDes = Image.open(r'./images/mist.png')
+    else:    
+        weatherDes = Image.open(r'./images/oops.png')
+
+    weatherDes = weatherDes.resize((70,70))
+    weatherDes = ImageTk.PhotoImage(weatherDes)
+    global DesImg 
+    DesImg= Label(image=weatherDes)
+    DesImg.place(x=col2,y=row5)
+
+
 
 weathernews1 = Image.open('weather-news.ico')
 weathernews1 = weathernews1.resize((50,50))
@@ -73,6 +103,7 @@ search1 = Image.open('search.png')
 search1 = search1.resize((40,40))
 search1 = ImageTk.PhotoImage(search1)
 search = Button(image=search1, borderwidth=0, cursor='hand2',command=get_weather)
+search.pack()
 search.place(x=390,y=row2+5)
 
 weatherLabel = Label(app, text='Temperature', font=('Times',15))
@@ -93,6 +124,6 @@ windspeed = Label(app, textvariable=text3, font=('Times',15))
 windspeed.place(x=355,y=row4)
 
 description = Label(app, textvariable=text4, font=('Times',15))
-description.place(x=col2-50,y=row5)
+description.place(x=col2-45,y=row6)
 
 app.mainloop()
