@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 align="center"><img align="center" src="weather-news.ico" alt="Error 404" height="80"> Weather Application</h1>
+  <h1 align="center"><img align="center" src="./images/weather-news.ico" alt="Error 404" height="80"> Weather Application</h1>
 </div>
 
 ## About Weather Application:
