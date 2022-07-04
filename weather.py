@@ -9,6 +9,7 @@ app = Tk()
 app.title("Weather")
 app.iconbitmap("weather-news.ico")
 app.geometry("500x500")
+app.resizable(False,False)
 
 col1=60
 col2=220
