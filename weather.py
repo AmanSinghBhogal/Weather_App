@@ -16,9 +16,9 @@ col3=350
 
 row1 = 10
 row2 = 90
-row3 = 150
-row4=180
-row5= 250
+row3 = 170
+row4=200
+row5= 280
 row6=350
 
 
@@ -55,14 +55,14 @@ def get_weather():
     wind = data["wind"]["speed"]
     dis = data["weather"][0]["description"]
     temp = "{:.2f}".format(temp)
-    humid = "{:.2f}".format(humid)
+    humid = "{:.1f}".format(humid)
     wind = "{:.2f}".format(wind)
 
-    text1.set(temp)
-    text2.set(humid)
-    text3.set(wind)
+    text1.set(temp+" °C")
+    text2.set(humid + " %")
+    text3.set(wind + " km/h")
     upper_desc = dis.upper()
-    center = upper_desc.center(20," ")
+    center = upper_desc.center(35," ")
     text4.set(center)
 
     global weatherDes
@@ -106,24 +106,40 @@ search = Button(image=search1, borderwidth=0, cursor='hand2',command=get_weather
 search.pack()
 search.place(x=390,y=row2+5)
 
-weatherLabel = Label(app, text='Temperature', font=('Times',15))
+temper1 = Image.open('./images/hot.png')
+temper1 = temper1.resize((30,30))
+temper1 = ImageTk.PhotoImage(temper1)
+temper = Label(image=temper1, cursor='hand2')
+temper.place(x=30,y=row3)
+weatherLabel = Label(app, text='Temperature', font=('Times',18))
 weatherLabel.place(x=60,y=row3)
-HumidityLabel = Label(app, text='Humidity', font=('Times',15))
-HumidityLabel.place(x=220,y=row3)
 
-windLabel = Label(app, text='Wind', font=('Times',15))
-windLabel.place(x=350,y=row3)
+humi1 = Image.open('./images/humidity.png')
+humi1 = humi1.resize((30,30))
+humi1 = ImageTk.PhotoImage(humi1)
+humi = Label(image=humi1, cursor='hand2')
+humi.place(x=198,y=row3)
+HumidityLabel = Label(app, text='Humidity', font=('Times',18))
+HumidityLabel.place(x=235,y=row3)
 
-temperature = Label(app, textvariable=text1, font=('Times',15))
-temperature.place(x=90,y=row4)
+windi1 = Image.open('./images/wind.png')
+windi1 = windi1.resize((30,30))
+windi1 = ImageTk.PhotoImage(windi1)
+windi = Label(image=windi1, cursor='hand2')
+windi.place(x=340,y=row3)
+windLabel = Label(app, text='Wind', font=('Times',18))
+windLabel.place(x=370,y=row3)
 
-humidity = Label(app, textvariable=text2, font=('Times',15))
-humidity.place(x=230,y=row4)
+temperature = Label(app, textvariable=text1, font=('Times',18))
+temperature.place(x=70,y=row4)
 
-windspeed = Label(app, textvariable=text3, font=('Times',15))
+humidity = Label(app, textvariable=text2, font=('Times',18))
+humidity.place(x=240,y=row4)
+
+windspeed = Label(app, textvariable=text3, font=('Times',18))
 windspeed.place(x=355,y=row4)
 
-description = Label(app, textvariable=text4, font=('Times',15))
-description.place(x=col2-45,y=row6)
+description = Label(app, textvariable=text4, font=('Times',18))
+description.place(x=col1+45,y=row6)
 
 app.mainloop()
