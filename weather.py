@@ -10,8 +10,19 @@ app.title("Weather")
 app.iconbitmap("weather-news.ico")
 app.geometry("500x500")
 
+col1=60
+col2=220
+col3=350
+
+row1 = 10
+row2 = 90
+row3 = 150
+row4=180
+row5=350
+
+
 city = Entry(app,font=('Times',18),borderwidth=15,relief=FLAT)
-city.place(x=80,y=30,width=300,height=50)
+city.place(x=80,y=row2,width=300,height=50)
 city.focus_set()
 
 text1 = StringVar()
@@ -49,35 +60,39 @@ def get_weather():
     text1.set(temp)
     text2.set(humid)
     text3.set(wind)
-    text4.set(str(dis))
+    text4.set(str(dis).upper())
 
-
+weathernews1 = Image.open('weather-news.ico')
+weathernews1 = weathernews1.resize((50,50))
+weathernews1 = ImageTk.PhotoImage(weathernews1)
+weathernews = Label(image=weathernews1, cursor='hand2')
+weathernews.place(x=col2,y=row1)
 
 
 search1 = Image.open('search.png')
-search1 = search1.resize((30,30))
+search1 = search1.resize((40,40))
 search1 = ImageTk.PhotoImage(search1)
 search = Button(image=search1, borderwidth=0, cursor='hand2',command=get_weather)
-search.place(x=390,y=40)
+search.place(x=390,y=row2+5)
 
 weatherLabel = Label(app, text='Temperature', font=('Times',15))
-weatherLabel.place(x=60,y=100)
+weatherLabel.place(x=60,y=row3)
 HumidityLabel = Label(app, text='Humidity', font=('Times',15))
-HumidityLabel.place(x=220,y=100)
+HumidityLabel.place(x=220,y=row3)
 
 windLabel = Label(app, text='Wind', font=('Times',15))
-windLabel.place(x=350,y=100)
+windLabel.place(x=350,y=row3)
 
 temperature = Label(app, textvariable=text1, font=('Times',15))
-temperature.place(x=90,y=130)
+temperature.place(x=90,y=row4)
 
 humidity = Label(app, textvariable=text2, font=('Times',15))
-humidity.place(x=230,y=130)
+humidity.place(x=230,y=row4)
 
 windspeed = Label(app, textvariable=text3, font=('Times',15))
-windspeed.place(x=355,y=130)
+windspeed.place(x=355,y=row4)
 
 description = Label(app, textvariable=text4, font=('Times',15))
-description.place(x=230,y=300)
+description.place(x=col2-50,y=row5)
 
 app.mainloop()
