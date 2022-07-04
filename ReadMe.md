@@ -3,13 +3,13 @@
 </div>
 
 ## About Weather Application:
-This is an Weather Application made in Python using Tkinter library.The source code is available to everyone under the standard MIT license. The Libraries used are:
-    1. tkinter
-    2. pillow
-    3. json
-    4. requests
-    5. bs4
-    6. python-decouple
+This is an Weather Application made in Python using Tkinter library.The source code is available to everyone under the standard MIT license. The Libraries used are:<br>
+    1. tkinter<br>
+    2. pillow<br>
+    3. json<br>
+    4. requests<br>
+    5. bs4<br>
+    6. python-decouple<br>
 
 The API used for Fetching the weather data is by <a href="https://openweathermap.org/api/one-call-3">OpenWeather</a>.
 
