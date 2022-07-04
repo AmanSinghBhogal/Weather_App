@@ -23,9 +23,6 @@ The API used for Fetching the weather data is by <a href="https://openweathermap
 <div align="center">
   <img src="./images/S2.JPG" height="400"  alt="S2">
 </div>
-<div align="center">
-  <img src="./images/S3.JPG" height="400"  alt="S3">
-</div>
 
 ### Steps to Run on Local Machine
 
