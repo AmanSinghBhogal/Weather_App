@@ -91,7 +91,11 @@ def get_weather():
     DesImg= Label(image=weatherDes)
     DesImg.place(x=col2,y=row5)
 
+def detectKey(e):
+    if(e.keycode == 13):
+        get_weather()
 
+app.bind("<KeyPress>", detectKey)
 
 weathernews1 = Image.open('./images/weather-news.ico')
 weathernews1 = weathernews1.resize((50,50))
